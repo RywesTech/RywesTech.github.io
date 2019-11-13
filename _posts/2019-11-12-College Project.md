@@ -69,7 +69,23 @@ What you see above is an ROC (Receiver Operating Characteristic) curve. As we in
 
 ### What are the worst schools?
 
-First, let's choose a few factors (columns) that make up weather a school is "good" or not. For me, I chose: wether or not a school is under investigation (bad), diversity (good), students with loans (bad), accreditation (good), and for-profit (bad). With these in mind, let's reuse some code from the RollerCoaster project to determine the worst schools. First, my code defines some setpoints to determine wether a aspect is good or bad. It then uses a basic scaling algorithm to scale all the columns while rating them between 0 and 100. 0 if they are the worst in the column relative to the other schools, 100 if they are the best in the column relative to the other schools, or somewhere in the middle. The code does this for each of the 5 aspects, then averages the score. We end up with these schools (and scores out of 100):
+First, let's choose a few factors (columns) that make up weather a school is "good" or not. For me, I chose: wether or not a school is under investigation (bad), diversity (good), students with loans (bad), accreditation (good), and for-profit (bad). With these in mind, let's reuse some code from the RollerCoaster project to determine the worst schools. First, my code defines some setpoints to determine wether a aspect is good or bad. It then uses a basic scaling algorithm to scale all the columns while rating them between 0 and 100. 0 if they are the worst in the column relative to the other schools, 100 if they are the best in the column relative to the other schools, or somewhere in the middle. The code does this for each of the 5 aspects, then averages the score.
+
+```python
+# this is basically what we use to scale the data
+def mapFromTo(x,a,b,c,d):
+   y=(x-a)/(b-a)*(d-c)+c
+   return y
+
+# set the mins and maxes (100 if that side is good, 0 if that side is bad. E.g. max diversity is good, min diversity is bad)
+investigation_max = 0; investigation_min = 100
+diversity_max = 100; diversity_min = 0
+loans_max = 0; loans_min = 100
+accred_max = 100; accred_min = 0
+profit_max = 0; profit_min = 100;
+```
+
+We end up with these schools (and scores out of 100):
 
 <ol>
   <li>Milan Institute (21.8 out of 100)</li>
@@ -79,12 +95,23 @@ First, let's choose a few factors (columns) that make up weather a school is "go
   <li>Everest Institute (23 out of 100)</li>
 </ol>
 
-This list in generalized to chains of schools, but if we look at individual schools then the Milan Institutes actually make up 10 of the 15 worst schools. WOW, I sure don't want to go to any of the Milan Institutes! (On a side note, their [website](https://milaninstitute.edu/) looks like it's from the early 2000's and contains a wide array of *borderline funny* stock images. My algorithm must've worked well.)
+This list in generalized to chains of schools, but if we look at individual schools then the Milan Institutes actually make up 10 of the 15 worst schools. Thankfully, they are not on my list for applications this year. (On a side note, their [website](https://milaninstitute.edu/) looks like it's from the early 2000's and contains a wide array of *borderline funny* stock images. My algorithm must've worked well.) Anyways, on a happier note, it looks like Atlanta Metropolitan State College, Los Angeles Southwest College, and CUNY Medgar Evers College are the top colleges with scores of 90.2, 90.6, and 92.0, respectively.
 
 ### What factors ensure a college is non-predatory?
 
-https://blog.harvardlawreview.org/for-profit-schools-predatory-practices-and-students-of-color-a-mission-to-enroll-rather-than-educate/
+**"Students of color have been hit heaviest by Ashford’s deceptive tactics, a trend that holds true across the for-profit college industry." (Harvard Review)**
+**Just when you thought the student loan crisis couldn't get any worse... (BigThink)**
+**Licensing and accreditation are the bare-minimum credentials a school should have. (NerdWallet)***
+
+Above are just a few of the main quotes I found while I was researching predatory schools. It seems that diversity, loans, and accreditation seem to have the largest impact on wether a school is performing a predatory practice or not.
+
+<https://blog.harvardlawreview.org/for-profit-schools-predatory-practices-and-students-of-color-a-mission-to-enroll-rather-than-educate/>
+<https://bigthink.com/politics-current-affairs/predatory-student-loans?rebelltitem=3#rebelltitem3>
+<https://www.nerdwallet.com/blog/loans/student-loans/college-choice/>
+<https://predatorystudentlending.org/>
 
 ### Conclusion
 
-From our ROC curve we can determine that the Gradient Boosting algorithm works the best for our data set here. If fact, if we put in the data for Stanford University, we can see that it output the correct answer of not-for-profit.
+In trying to predict wether a school is for-profit or not, we can tell that the Gradient Boosting algorithm works the best for our data set from the shape of our ROC curve. If fact, if we put in the data for Stanford University, we can see that it outputs the correct answer of not-for-profit.
+By using a custom rating algorithm which takes into account wether or not a school is under investigation (bad), diverse (good), has many students with loans (bad), accredited (good), and for-profit (bad), we can estimate the worst and best schools. Milan Institute was by far the worst school (you can read about the disaster [here](https://www.visaliatimesdelta.com/story/news/2019/07/23/milan-institute-struggles-make-payroll-while-employees-scramble/1751222001/)), and CUNY Medgar Evers College in New York seemed to be the best. It is also worth looking into what makes a school a Predatory school, which you can read about in the links above.
+I hope you enjoyed reading about these schools!
