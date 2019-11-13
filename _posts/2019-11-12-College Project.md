@@ -20,41 +20,53 @@ To kick off this data prediction, let's use what we've been learning in class re
 
 If we print out a classification report of our model, here is what we get:
 
-*precision    recall  f1-score   support*
-0               0.92      0.90      0.91      1143
-1               0.87      0.90      0.88       879
+![Oops! This didn't load.](/images/col-stats.png)
 
-accuracy                            0.90      2022
-macro avg       0.89      0.90      0.89      2022
-weighted avg    0.90      0.90      0.90      2022
+The table columns tell us...
+An average precision of 0.89 means that out of all the schools predicted to be for-profit, 89% were correct.
+An average recall of 0.87 means that 89% of the for-profit schools were corrected predicted as for-profit
+The F1 score takes into account the precision and recall, and is used to measure the overall performace of the model.
+A support value of 1112 for the 0's means that there are 1112 correct samples in the not-for-profit class.
+A support value of 910 for the 1's means that there are 910 correct samples in the for-profit class.
 
-### Why is my R<sup>2</sup> so darn low!
+### I am confusion
 
-Because my R<sup>2</sup> was so low, I wanted to plot some of my numerical data to see what was going on. Here's what I saw:
+It's almost like whoever created the confusion matrix wanted it to be... confusing? Well, they sure succeeded. Our model prints out this confusion matrix:
 
-![Oops! This didn't load.](/images/dat1.png)
-![Oops! This didn't load.](/images/dat2.png)
-![Oops! This didn't load.](/images/dat3.png)
+```
+array([[3564,  271],
+       [ 334, 2571]])
+```
 
-Well, this is certainly some odd looking data! The first graph looks odd because there are plenty of app with few screenshots on the App Store that rate high, while there is also plenty of apps with many screenshots on the App Store that rate very low! So we end up with this odd looking graph of numerical values. The second and third graphs look more normal, but there are a whole lot of possible values on the low end of the X-axis, so this is probably one of the reasons our R^2 is so low. Just for fun, I wanted to see what it would look like to fit a polynomial to the "Number of Languages Supported Graph". Here's what my code produced:
+Which corresponds to this order:
+```
+[[TN, FP],
+  [FN, TP]]
+```
+This confusing confusion matrix tells us that...
+3,498 school that were correctly predicted as not-for-profit (TN).
+337 schools were incorrectly predicted as for-profit (FP).
+285 schools were incorrectly predicted as not-for-profit (FN).
+2620 schools were correctly predicted as for-profit (TP).
 
-![Oops! This didn't load.](/images/dat4.png)
+### Decisions, decisions, decisions (boundaries)
 
-Interesting for sure!
+Let's use a logarithmic regression model to plot a decision boundary between instructional_expenditure_per_fte and 5_year_declining_balance. After using the StandardScaler to scale our data, here's what we get:
 
-### Time to run this RidgeCV
+![Oops! This didn't load.](/images/col-boundary.png)
 
-The first step was to find what polynomial *degree* fits the *numerical* explanatory data the best. By using a train_test_split with a train size of 75% and a test size of 25%, I was able to generate the graph below:
+Well... That's disappointing. With how scattered the data is, it seems like these factors probably aren't the best way to predict if a school is for-profit or not. Let's try some other things.
 
-![Oops! This didn't load.](/images/testtrain.png)
+### More algorithms
 
-This graph shows that the least amount of error will occur while fitting a degree-two polynomial to the data set. Next, I used a polynomial of degree 2 to populate our dataframe with the original columns, columns squared, and interaction columns. I then scaled the data so columns with large ranges (such as number of ratings) wouldn't overpower the columns with smaller ranges (such as the price). These steps were done using a Pipeline, which ties together steps into a sequence.
-Once I had the new, scaled data, I combined the numerical and one-hot data into one DataFramed called "X". Once I had X and y, I was able to simply use the RidgeCV command with possible alphas of [0.00001, 0.1, 1] to create a model. Then, in one elegant line, model.fit(X,y), the model was fit to the data. An intercept and a ton of coefficients were outputted from this process. There were a lot because of the large number of categorical data, as well as the colums that were created in the PolynomialFeature stage.
+Let's try using Naive Bayes, Logistic Regression, Gradient Boosting, and KNN classifiers to model our data. Then, let's plot what it would look like to increase their false positive rates (FPR) and see what kind of true positive rates (TPR) we would get:
 
-![Oops! This didn't load.](/images/output.png)
+![Oops! This didn't load.](/images/col-roc.png)
+
+What you see above is an ROC (Receiver Operating Characteristic) curve. As we increase the FPR, the TPR will naturally increase as well. However, we want a low FPR and a high TPR. Because of this, we want to find the curve with the greatest area under it. Luckily, it's pretty easy to see that our Gradient Boosting algorithm wins here at an accuracy of 98.39%.
+
+### What are the worst schools?
+
+### What factors ensure a college is non-predatory?
 
 ### Conclusion
-
-In the end, I only had a model score of about 0.15. With the data provided, it seems very hard to be able to predict the rating of an app. There are so many aspects of an app that will lead people to rate it differently. The data I had access to is just one part of the story. Nevertheless, it was a super exciting process getting to learn all about RidgeCV, Pandas, and how these algorithms process data!
-
-You can find my repository with all my code [here](https://github.com/RywesTech/AppCrunch).
