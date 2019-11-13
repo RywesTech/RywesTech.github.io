@@ -69,7 +69,7 @@ What you see above is an ROC (Receiver Operating Characteristic) curve. As we in
 
 ### What are the worst schools?
 
-First, let's choose a few factors (columns) that make up weather a school is "good" or not. For me, I chose: wether or not a school is under investigation (bad), diversity (good), students with loans (bad), accreditation (good), and for-profit (bad). With these in mind, let's reuse some code from the RollerCoaster project to determine the worst schools. First, my code defines some setpoints to determine wether a aspect is good or bad. It then uses a basic scaling algorithm to scale all the columns while rating them between 0 and 100. 0 if they are the worst in the column relative to the other schools, 100 if they are the best in the column relative to the other schools, or somewhere in the middle. The code does this for each of the 5 aspects, then averages the score.
+First, let's choose a few factors (columns) that make up wether a school is "good" or not. For me, I chose: wether or not a school is under investigation (bad), diversity (good), students with loans (bad), accreditation (good), and for-profit (bad). With these in mind, let's reuse some code from the RollerCoaster project to determine the worst schools. First, my code defines some setpoints to determine wether an aspect is good or bad. It then uses a basic scaling algorithm to scale all the columns while rating them between 0 and 100. 0 if they are the worst in the column relative to the other schools, 100 if they are the best in the column relative to the other schools, or somewhere in the middle. The code does this for each of the 5 aspects, then averages the score.
 
 ```python
 # this is basically what we use to scale the data
@@ -99,12 +99,15 @@ This list in generalized to chains of schools, but if we look at individual scho
 
 ### What factors ensure a college is non-predatory?
 
-**"Students of color have been hit heaviest by Ashford’s deceptive tactics, a trend that holds true across the for-profit college industry." (Harvard Review)**
-**Just when you thought the student loan crisis couldn't get any worse... (BigThink)**
-**Licensing and accreditation are the bare-minimum credentials a school should have. (NerdWallet)***
+<ul>
+<li>**"Students of color have been hit heaviest by Ashford’s deceptive tactics, a trend that holds true across the for-profit college industry." (Harvard Review)**</li>
+<li>**"Just when you thought the student loan crisis couldn't get any worse..." (BigThink)**</li>
+<li>**"Licensing and accreditation are the bare-minimum credentials a school should have." (NerdWallet)***</li>
+</ul>
 
 Above are just a few of the main quotes I found while I was researching predatory schools. It seems that diversity, loans, and accreditation seem to have the largest impact on wether a school is performing a predatory practice or not.
 
+Sources and other good links:
 <https://blog.harvardlawreview.org/for-profit-schools-predatory-practices-and-students-of-color-a-mission-to-enroll-rather-than-educate/>
 <https://bigthink.com/politics-current-affairs/predatory-student-loans?rebelltitem=3#rebelltitem3>
 <https://www.nerdwallet.com/blog/loans/student-loans/college-choice/>
