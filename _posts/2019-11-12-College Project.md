@@ -24,11 +24,11 @@ If we print out a classification report of our model, here is what we get:
 
 The table columns tell us that...
 <ul>
-An average precision of 0.89 means that out of all the schools predicted to be for-profit, 89% were correct.
-An average recall of 0.87 means that 89% of the for-profit schools were corrected predicted as for-profit
-The F1 score takes into account the precision and recall, and is used to measure the overall performace of the model.
-A support value of 1112 for the 0's means that there are 1112 correct samples in the not-for-profit class.
-A support value of 910 for the 1's means that there are 910 correct samples in the for-profit class.
+<li>An average precision of 0.89 means that out of all the schools predicted to be for-profit, 89% were correct.</li>
+<li>An average recall of 0.87 means that 89% of the for-profit schools were corrected predicted as for-profit.</li>
+<li>The F1 score takes into account the precision and recall, and is used to measure the overall performace of the model.</li>
+<li>A support value of 1112 for the 0's means that there are 1112 correct samples in the not-for-profit class.</li>
+<li>A support value of 910 for the 1's means that there are 910 correct samples in the for-profit class.</li>
 </ul>
 
 ### I am confusion
