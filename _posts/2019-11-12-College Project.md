@@ -117,4 +117,4 @@ Sources and other good links:
 
 In trying to predict wether a school is for-profit or not, we can tell that the Gradient Boosting algorithm works the best for our data set from the shape of our ROC curve. If fact, if we put in the data for Stanford University, we can see that it outputs the correct answer of not-for-profit.
 By using a custom rating algorithm which takes into account wether or not a school is under investigation (bad), diverse (good), has many students with loans (bad), accredited (good), and for-profit (bad), we can estimate the worst and best schools. Milan Institute was by far the worst school (you can read about the disaster [here](https://www.visaliatimesdelta.com/story/news/2019/07/23/milan-institute-struggles-make-payroll-while-employees-scramble/1751222001/)), and CUNY Medgar Evers College in New York seemed to be the best. It is also worth looking into what makes a school a Predatory school, which you can read about in the links above.
-I hope you enjoyed reading about these schools!
+I hope you enjoyed reading about this project!
