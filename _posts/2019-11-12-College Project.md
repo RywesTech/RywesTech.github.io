@@ -100,9 +100,9 @@ This list in generalized to chains of schools, but if we look at individual scho
 ### What factors ensure a college is non-predatory?
 
 <ul>
-<li>**"Students of color have been hit heaviest by Ashford’s deceptive tactics, a trend that holds true across the for-profit college industry." (Harvard Review)**</li>
-<li>**"Just when you thought the student loan crisis couldn't get any worse..." (BigThink)**</li>
-<li>**"Licensing and accreditation are the bare-minimum credentials a school should have." (NerdWallet)***</li>
+<li> **"Students of color have been hit heaviest by Ashford’s deceptive tactics, a trend that holds true across the for-profit college industry." (Harvard Review)** </li>
+<li> **"Just when you thought the student loan crisis couldn't get any worse..." (BigThink)** </li>
+<li> **"Licensing and accreditation are the bare-minimum credentials a school should have." (NerdWallet)** </li>
 </ul>
 
 Above are just a few of the main quotes I found while I was researching predatory schools. It seems that diversity, loans, and accreditation seem to have the largest impact on wether a school is performing a predatory practice or not.
