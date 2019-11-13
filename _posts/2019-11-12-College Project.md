@@ -69,6 +69,22 @@ What you see above is an ROC (Receiver Operating Characteristic) curve. As we in
 
 ### What are the worst schools?
 
+First, let's choose a few factors (columns) that make up weather a school is "good" or not. For me, I chose: wether or not a school is under investigation (bad), diversity (good), students with loans (bad), accreditation (good), and for-profit (bad). With these in mind, let's reuse some code from the RollerCoaster project to determine the worst schools. First, my code defines some setpoints to determine wether a aspect is good or bad. It then uses a basic scaling algorithm to scale all the columns while rating them between 0 and 100. 0 if they are the worst in the column relative to the other schools, 100 if they are the best in the column relative to the other schools, or somewhere in the middle. The code does this for each of the 5 aspects, then averages the score. We end up with these schools (and scores out of 100):
+
+<ol>
+  <li>Milan Institute (21.8 out of 100)</li>
+  <li>Laird Institute of Spa Therapy (22.2 out of 100)</li>
+  <li>Gary Manuel Aveda Institute (22.4 out of 100)</li>
+  <li>Bella Capelli Academy (22.6 out of 100)</li>
+  <li>Everest Institute (23 out of 100)</li>
+</ol>
+
+This list in generalized to chains of schools, but if we look at individual schools then the Milan Institutes actually make up 10 of the 15 worst schools. WOW, I sure don't want to go to any of the Milan Institutes! (On a side note, their [website](https://milaninstitute.edu/) looks like it's from the early 2000's and contains a wide array of *borderline funny* stock images. My algorithm must've worked well.)
+
 ### What factors ensure a college is non-predatory?
 
+https://blog.harvardlawreview.org/for-profit-schools-predatory-practices-and-students-of-color-a-mission-to-enroll-rather-than-educate/
+
 ### Conclusion
+
+From our ROC curve we can determine that the Gradient Boosting algorithm works the best for our data set here. If fact, if we put in the data for Stanford University, we can see that it output the correct answer of not-for-profit.
