@@ -12,9 +12,9 @@ Below is a log of my daily progress, including:
 
 **January 7th**
 Today I read these three articles, explored the Python NLTK framework, and initiated my Git repo:
-[https://towardsdatascience.com/creating-bots-that-sound-like-humans-with-natural-language-processing-d9581905de]
-https://towardsdatascience.com/build-your-first-chatbot-using-python-nltk-5d07b027e727
-https://medium.com/analytics-vidhya/building-a-simple-chatbot-in-python-using-nltk-7c8c8215ac6e
+<https://towardsdatascience.com/creating-bots-that-sound-like-humans-with-natural-language-processing-d9581905de>
+<https://towardsdatascience.com/build-your-first-chatbot-using-python-nltk-5d07b027e727>
+<https://medium.com/analytics-vidhya/building-a-simple-chatbot-in-python-using-nltk-7c8c8215ac6e>
 
 The first article described the use of Seq2Seq Models, which uses two recurrent neural networks to encode the data, focus on each particular part, then decode the data. In sum, this type of model takes in a sentence, processes it one word at a time, and outputs a sentence one word at a time. Each part is accomplished by the encoder, the attention mechanism, and the decoder.
 The second article takes a very simplistic approach to chatbots, but it seems like a good starting point.
