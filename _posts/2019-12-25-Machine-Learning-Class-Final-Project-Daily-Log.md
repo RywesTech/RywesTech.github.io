@@ -25,7 +25,11 @@ Some of the terminology was difficult, but I think I answered all my questions t
 
 **January 8th**
 
+Today I started to build a simple chatbot using the NLTK framework. It took a while to get NLTK installed and configured, so that took up most of today's work. Running the UI installer crashed my computer (as soon as I tried to open the installer the screen went blank and my computer rebooted), so I did it through the terminal and that worked fine. I've read about Term Frequency and Cosine Similarity more to gain a better understanding of these concepts.
 
+The largest difficulty today was to get my foundation working: installing the packages that I need, getting NLTK working in the notebook, and trying to understand basic chatbot code. I figured out all my problems today, so we're set!
+
+My plan tomorrow is to further understand how this chatbot works, and continue to dive into example code.
 
 **January 9th**
 
