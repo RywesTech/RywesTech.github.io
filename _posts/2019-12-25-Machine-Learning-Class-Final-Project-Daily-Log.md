@@ -83,6 +83,8 @@ Open a text field, and wait for input. When a text is received, lemmatize it, ta
 
 **January 15th**
 
+Today I am starting to build the second version of my chatbot. In the first version, the NLTK package just looked through the entire corpus (all texts between me and my girlfriend). It could choose any message, regardless of whether it was from me or her. Now I'm trying to figure out how to build two corpuses: one of my messages, one of hers. I then want to build a chatbot that responds as if it is me, using my corpus. I'm exploring the cosine similarity function to see how I can pass sentences from two different corpuses through. I am going to keep working on that tomorrow.
+
 **January 16th**
 
 **January 17th**
