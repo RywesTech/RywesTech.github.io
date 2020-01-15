@@ -60,11 +60,26 @@ When we apply TF-IDF to two texts we get two vectors. We can determine how simil
 
 Now that I understand chatbots more, I spent today getting my data ready to put into my algorithm. I want to be able to make a chatbot that responds to texts for me, so I needed to parse my text database. Using an open-source Jupyter Notebook, I converted the SQL database to a rough CSV file. I then wrote my own code to take in the CSV table with all the data, extract just the messages with one specific person, organize them into a NLTK-readable format, and saves the output to a TXT file.
 
+When exploring my dataset, I was very confused about why my data only looked correct for recent text messages. Turns out none of the texts I sent have been saved before July of 2019. Not sure why this is, but it's fine. I will just have to drop off those earlier texts.
+
 I was sick today, so I spent as much time as possible getting caught up.
 
 **January 13th**
 
+Today I took the data that I parsed on the previous class day, and put it into the NLTK algorithm. My code follows the simple 3-step process:
+***Load***
+Load the file, convert it to lower-case, separate the texts with periods, convert it to a list of sentences, and finally convert it to a list of words.
 
+***Serialize***
+Remove punctuation, and Lemmatize the words.
+
+***Respond***
+Open a text field, and wait for input. When a text is received, lemmatize it, take the cosine similarity with all possible responses, find the best one, and respond with it.
+
+***First conversation with my chatbot!***
+![Oops! This didn't load.](/images/chat-1.png)
+
+![Oops! This didn't load.](/images/meaning-of-life.png)
 
 **January 15th**
 
