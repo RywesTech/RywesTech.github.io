@@ -1,6 +1,6 @@
 ---
 layout: post
-Title: Chatter: A chatbot that texts for you
+Title: Chatter: A chatbot that texts for you.
 ---
 
 If you have ever used Siri, Amazon Alexa, or Cortana before, then you have interacted with a chatbot. According to Wikipedia, a chatbot is a "piece of software that conducts a conversation via auditory or textual methods. Such programs are often designed to convincingly simulate how a human would behave as a conversational partner." Many companies are starting to use chatbots as a more efficient method for interacting with customers, which makes then an incredibly interesting area of research. However, I'm going to be taking a much less commercial approach. I'm going to be creating a chatbot that responds to people over text for me.
